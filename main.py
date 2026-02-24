@@ -7,10 +7,15 @@ import uuid
 app = FastAPI()
 
 # CORS pour le frontend local
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
+    allow_origins=[
+        "https://braillescore-frontend-production.up.railway.app",
+        "http://localhost:3000",
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
